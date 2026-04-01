@@ -3,7 +3,7 @@
 ## 项目结构
 - `src/`：存放所有编程题的C语言实现
 - `problems/`：存放编程题的题目描述
-- `bin/`：存放编译生成的可执行文件
+- `output/`：存放编译生成的可执行文件
 
 ## 开发环境
 - 操作系统：Windows x64
@@ -13,7 +13,7 @@
 ## 编译方法
 使用GCC编译器编译单个文件：
 ```bash
-gcc src/1.brother_string.c -o bin/1.brother_string.exe
+gcc src/1.brother_string.c -o output/1.brother_string.exe
 ```
 
 ## 已完成的题目
