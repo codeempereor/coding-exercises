@@ -105,26 +105,30 @@ void solve()
     printf("=== 有序数组两数之和 ===\n");
     printf("题目：在有序数组中查找两个数，使得它们的和正好是输入的目标值\n\n");
     
-    // 测试用例1：基本情况（多对）
+    // 测试用例1：基本情况
     int nums1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     int target1 = 10;
+
     
-    printf("测试用例1：");
+    printf("测试用例1:");
     print_array(nums1, n1);
     printf("目标值：%d\n", target1);
+    
     printf("找到：\n");
     two_sum_sorted(nums1, n1, target1);
-    printf("预期：1 + 9 = 10, 2 + 8 = 10, 3 + 7 = 10, 4 + 6 = 10\n\n");
+    printf("预期:1 + 9 = 10 或 2 + 8 = 10 等\n\n");
     
     // 测试用例2：负数情况
     int nums2[] = {-5, -3, -2, 0, 1, 4, 6, 8};
     int n2 = sizeof(nums2) / sizeof(nums2[0]);
     int target2 = 2;
+
     
-    printf("测试用例2：");
+    printf("测试用例2:");
     print_array(nums2, n2);
     printf("目标值：%d\n", target2);
+    
     printf("找到：\n");
     two_sum_sorted(nums2, n2, target2);
     printf("预期：-2 + 4 = 2\n\n");
@@ -133,10 +137,12 @@ void solve()
     int nums3[] = {1, 2, 3, 4, 5};
     int n3 = sizeof(nums3) / sizeof(nums3[0]);
     int target3 = 100;
+
     
-    printf("测试用例3：");
+    printf("测试用例3:");
     print_array(nums3, n3);
     printf("目标值：%d\n", target3);
+    
     printf("找到：\n");
     two_sum_sorted(nums3, n3, target3);
     printf("预期：未找到\n\n");
@@ -145,21 +151,22 @@ void solve()
     int nums4[] = {2, 7};
     int n4 = sizeof(nums4) / sizeof(nums4[0]);
     int target4 = 9;
+
     
-    printf("测试用例4：");
+    printf("测试用例4:");
     print_array(nums4, n4);
     printf("目标值：%d\n", target4);
+    
     printf("找到：\n");
     two_sum_sorted(nums4, n4, target4);
-    printf("预期：2 + 7 = 9\n");
+    printf("预期:2 + 7 = 9\n");
 }
 
 /**
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main()
-{
+int main() {
     solve();
     return 0;
 }
