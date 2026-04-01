@@ -1,0 +1,47 @@
+# 编码格式提示
+
+## 问题描述
+在Windows系统中，使用GCC编译C/C++代码时，可能会遇到中文字符显示乱码的问题。
+
+## 解决方案
+
+### 方法1：在代码中添加Windows API调用
+在主函数中添加以下代码，设置控制台输出为UTF-8编码：
+
+```c
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+int main() {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+    
+    // 其他代码...
+}
+```
+
+### 方法2：编译时指定编码格式
+使用GCC的`-fexec-charset`选项指定可执行文件的字符集为UTF-8：
+
+```bash
+gcc -fexec-charset=UTF-8 source.c -o output.exe
+```
+
+### 方法3：设置PowerShell为UTF-8模式
+在PowerShell中运行以下命令，启用UTF-8模式：
+
+```powershell
+chcp 65001
+```
+
+## 注意事项
+1. 确保源代码文件保存为UTF-8编码格式
+2. 对于所有包含中文字符的代码文件，建议添加Windows API调用的方法
+3. 编译时可以结合使用`-fexec-charset=UTF-8`选项，确保编码格式正确
+4. 运行程序前，确保PowerShell的编码设置为UTF-8
+
+## 示例
+已在`1.brother_string.c`文件中添加了编码格式处理代码，可作为参考。

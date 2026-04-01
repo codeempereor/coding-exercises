@@ -27,6 +27,9 @@
  * ============================================================================ */
 
 #include <stdio.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 #define MAX_N 100
 
@@ -140,6 +143,10 @@ void solve()
  */
 int main()
 {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
     solve();
     return 0;
 }

@@ -27,6 +27,9 @@
 
 #include <stdio.h>  // 输入输出函数
 #include <stdlib.h> // 动态内存分配函数
+#ifdef _WIN32
+#include <windows.h>
+#endif
 #define MAX_N 100
 
 /**
@@ -197,6 +200,10 @@ void solve()
  * @return int 程序退出状态码
  */
 int main() {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
     solve();
     return 0;
 }

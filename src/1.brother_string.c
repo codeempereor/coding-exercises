@@ -19,10 +19,15 @@
  *   - 单词变位词检测
  * 版权声明: © 2026 三道渊. All rights reserved.
  * 变更记录:
+ *   - 2026-03-29 三道渊: 添加了Windows API调用，设置控制台编码为UTF-8
  *   - 2026-03-29 三道渊: 初始化文件
  * ============================================================================ */
 
 #include <stdio.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 #define MAX_N 100
 
@@ -123,6 +128,10 @@ void solve()
  */
 int main() 
 {
+    #ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
     solve();
     return 0;
 }

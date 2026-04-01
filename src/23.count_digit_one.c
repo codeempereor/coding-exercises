@@ -23,6 +23,9 @@
  * ============================================================================ */
 
 #include <stdio.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 /**
  * @brief 统计从1到n的所有整数中，数字1出现的次数
@@ -93,6 +96,10 @@ void solve()
  */
 int main()
 {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
     solve();
     return 0;
 }

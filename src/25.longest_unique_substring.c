@@ -26,6 +26,9 @@
  * ============================================================================ */
 
 #include <stdio.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 #include <string.h>
 
 #define MAX_LEN 256
@@ -128,6 +131,10 @@ void solve()
  */
 int main()
 {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
     solve();
     return 0;
 }
