@@ -3,14 +3,26 @@
  * 文件名称: 30.string_elimination.c
  * 作    者: 三道渊
  * 创建日期: 2026-03-29
- * 最后修改: 2026-03-29
+ * 最后修改: 2026-04-04
  * 版    本: v1.0.0
  * 适用平台: Windows x64
  * 编译依赖: GCC 15.2.0, stdio.h
  * 功能描述:
- *   1. 字符串消除
+ *   1. 字符串消除：消除字符串中连续的重复字符
+ * 算法描述:
+ *   - 栈模拟法：使用栈的思想消除连续重复字符
+ *   - 步骤1：遍历字符串，将字符压入栈
+ *   - 步骤2：如果栈顶字符与当前字符相同，弹出栈顶
+ *   - 步骤3：否则将当前字符压入栈
+ *   - 步骤4：重复直到没有更多消除
+ *   - 时间复杂度O(n)，空间复杂度O(n)
+ * 适用场景:
+ *   - 字符串处理问题
+ *   - 栈的应用
+ *   - 消消乐游戏
  * 版权声明: © 2026 三道渊. All rights reserved.
  * 变更记录:
+ *   - 2026-04-04 三道渊: 补充算法描述和适用场景，实现完整功能
  *   - 2026-03-29 三道渊: 初始化文件
  * ============================================================================ */
 
@@ -22,13 +34,76 @@
 #define MAX_N 100
 
 /**
+ * @brief 消除字符串中连续的重复字符
+ * @param str 输入字符串
+ * @param result 存储结果的数组
+ * @return 消除后的字符串长度
+ */
+int string_elimination(const char *str, char *result)
+{
+    int len = 0;
+    while (str[len] != '\0') len++;
+    
+    if (len == 0)
+    {
+        result[0] = '\0';
+        return 0;
+    }
+    
+    int stack[MAX_N];
+    int top = -1;
+    
+    for (int i = 0; i < len; i++)
+    {
+        if (top >= 0 && stack[top] == str[i])
+        {
+            top--;
+        }
+        else
+        {
+            stack[++top] = str[i];
+        }
+    }
+    
+    int result_len = 0;
+    for (int i = 0; i <= top; i++)
+    {
+        result[result_len++] = stack[i];
+    }
+    result[result_len] = '\0';
+    
+    return result_len;
+}
+
+/**
  * @brief 字符串消除
  * @return void
  */
-void solve() {
-    // TODO: 实现字符串消除的解决方案
+void solve()
+{
     printf("=== 字符串消除 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：消除字符串中连续的重复字符\n\n");
+    
+    char result[MAX_N];
+    
+    const char *test_cases[] = {
+        "aabccba",
+        "abbaca",
+        "azxxzy",
+        "aaaa",
+        "abc",
+        ""
+    };
+    
+    int n = sizeof(test_cases) / sizeof(test_cases[0]);
+    
+    for (int i = 0; i < n; i++)
+    {
+        int len = string_elimination(test_cases[i], result);
+        printf("测试用例%d: \"%s\"\n", i + 1, test_cases[i]);
+        printf("  消除后: \"%s\"\n", result);
+        printf("  长度: %d\n\n", len);
+    }
 }
 
 /**
