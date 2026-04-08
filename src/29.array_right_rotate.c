@@ -91,13 +91,7 @@ void print_array(int arr[], int len)
  * @brief 数组右旋转
  * @return void
  */
-void solve()
-{
-    printf("=== 数组右旋转 ===\n");
-    printf("题目：将数组中的元素向右旋转k个位置\n\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 4, 5, 6, 7};
+;
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     int k1 = 3;
     
@@ -144,11 +138,16 @@ void solve()
  * @return int 程序退出状态码
  */
 int main()
-{
-    #ifdef _WIN32
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 数组右旋转 ===\n");
+    printf("题目：将数组中的元素向右旋转k个位置\n\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 4, 5, 6, 7
+
+return 0;
 }

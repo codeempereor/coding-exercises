@@ -101,11 +101,17 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief 只出现一次的数字
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-void solve()
+int main()
 {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("\n");
     printf("=== 只出现一次的数字 ===\n");
     printf("题目：找出数组中只出现一次的两个数字，其他数字都出现了两次\n\n");
     
@@ -157,18 +163,6 @@ void solve()
     
     printf("只出现一次的数字：%d 和 %d\n", single1, single2);
     printf("预期:40 和 50\n\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

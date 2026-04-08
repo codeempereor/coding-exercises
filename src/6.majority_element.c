@@ -58,14 +58,14 @@ int find_majority_element(int nums[], int n)
     
     // 第一遍：找出候选元素
     for (int i = 0; i < n; i++)
-    {
+{
         if (count == 0)
         {
             candidate = nums[i];
             count = 1;
         }
         else if (nums[i] == candidate)
-        {
+{
             count++;
         }
         else
@@ -112,13 +112,7 @@ void print_array(int arr[], int n)
  * @brief 多数元素
  * @return void
  */
-void solve()
-{
-    printf("=== 多数元素 ===\n");
-    printf("题目：找出数组中出现次数超过数组长度一半的数字\n\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 2, 2, 2, 5, 4, 2};
+;
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     
     printf("测试用例1:");
@@ -170,11 +164,17 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 多数元素 ===\n");
+    printf("题目：找出数组中出现次数超过数组长度一半的数字\n\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 2, 2, 2, 5, 4, 2
+
+return 0;
 }

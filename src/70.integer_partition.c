@@ -22,24 +22,19 @@
 #define MAX_N 100
 
 /**
- * @brief 整数分拆
- * @return void
- */
-void solve() {
-    // TODO: 实现整数分拆的解决方案
-    printf("=== 整数分拆 ===\n");
-    printf("Solution to be implemented...\n");
-}
-
-/**
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
+int main()
+{
     #ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+// TODO: 实现整数分拆的解决方案
+    printf("=== 整数分拆 ===\n");
+    printf("Solution to be implemented...\n");
+
+return 0;
 }

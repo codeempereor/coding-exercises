@@ -63,7 +63,7 @@ int longest_unique_substring(const char *s, char *result)
         char c = s[right];
         // 如果字符已经在窗口中，移动左指针
         if (last_pos[c] >= left)
-        {
+{
             left = last_pos[c] + 1;
         }
         // 更新字符位置
@@ -86,9 +86,19 @@ int longest_unique_substring(const char *s, char *result)
  * @brief 最长无重复子串
  * @return void
  */
-void solve()
-{
-    printf("=== 最长无重复子串 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 最长无重复子串 ===\n");
     printf("题目：给定一个字符串，请你找出其中不含有重复字符的最长子串的长度\n\n");
     
     // 测试用例1：基本情况
@@ -123,18 +133,6 @@ void solve()
     printf("最长无重复子串：%s\n", result3);
     printf("长度：%d\n", len3);
     printf("预期结果：wke，长度3\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

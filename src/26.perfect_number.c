@@ -45,7 +45,7 @@ bool is_perfect_number(int num)
     int sum = 1; // 1是所有正整数的因数
     
     for (int i = 2; i * i <= num; i++)
-    {
+{
         if (num % i == 0)
         {
             sum += i;
@@ -92,9 +92,19 @@ void find_perfect_numbers(int n)
  * @brief 完数
  * @return void
  */
-void solve()
-{
-    printf("=== 完数 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 完数 ===\n");
     printf("题目：完数是指一个数恰好等于它的真因数之和\n\n");
     
     // 测试用例1：判断单个数
@@ -113,18 +123,6 @@ void solve()
     printf("测试用例3：\n");
     find_perfect_numbers(1000);
     printf("预期结果：6 28 496\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

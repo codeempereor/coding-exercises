@@ -79,21 +79,7 @@ int string_elimination(const char *str, char *result)
  * @brief 字符串消除
  * @return void
  */
-void solve()
-{
-    printf("=== 字符串消除 ===\n");
-    printf("题目：消除字符串中连续的重复字符\n\n");
-    
-    char result[MAX_N];
-    
-    const char *test_cases[] = {
-        "aabccba",
-        "abbaca",
-        "azxxzy",
-        "aaaa",
-        "abc",
-        ""
-    };
+;
     
     int n = sizeof(test_cases) / sizeof(test_cases[0]);
     
@@ -110,11 +96,24 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 字符串消除 ===\n");
+    printf("题目：消除字符串中连续的重复字符\n\n");
+    
+    char result[MAX_N];
+    
+    const char *test_cases[] = {
+        "aabccba",
+        "abbaca",
+        "azxxzy",
+        "aaaa",
+        "abc",
+        ""
+
+return 0;
 }

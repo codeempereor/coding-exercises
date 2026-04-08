@@ -82,7 +82,7 @@ int string_to_integer(const char *s)
     
     // 处理溢出
     if (result > INT_MAX)
-    {
+{
         return INT_MAX;
     }
     if (result < INT_MIN)
@@ -97,9 +97,19 @@ int string_to_integer(const char *s)
  * @brief 字符串转整数
  * @return void
  */
-void solve()
-{
-    printf("=== 字符串转整数 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 字符串转整数 ===\n");
     printf("题目：将字符串转换为整数\n\n");
     
     // 测试用例1：基本情况
@@ -137,18 +147,6 @@ void solve()
     int result4 = string_to_integer(s4);
     printf("转换结果：%d\n", result4);
     printf("预期结果：2147483647 (INT_MAX)\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

@@ -45,7 +45,7 @@ const unsigned long long primes[] =
  * @param str 输入字符串
  * @return 素数乘积值
  */
-unsigned long long calculate_product(const char *str) 
+unsigned long long calculate_product(const char *str)
 {
     unsigned long long product = 1;
     int i;
@@ -55,8 +55,8 @@ unsigned long long calculate_product(const char *str)
         if (c >= 'a' && c <= 'z') 
         {
             product *= primes[c - 'a'];
-        } else if (c >= 'A' && c <= 'Z') 
-        {
+        } else if (c >= 'A' && c <= 'Z')
+{
             product *= primes[c - 'A'];
         }
     }
@@ -69,7 +69,7 @@ unsigned long long calculate_product(const char *str)
  * @param str2 第二个字符串
  * @return 1表示是兄弟字符串，0表示不是
  */
-int is_brother_string(const char *str1, const char *str2) 
+int is_brother_string(const char *str1, const char *str2)
 {
     return calculate_product(str1) == calculate_product(str2);
 }
@@ -78,21 +78,7 @@ int is_brother_string(const char *str1, const char *str2)
  * @brief 兄弟字符串
  * @return void
  */
-void solve() 
-{
-    printf("=== 兄弟字符串 ===\n");
-    
-    // 测试用例
-    char str1[] = "bad";
-    char str2[] = "adb";
-    char str3[] = "abc";
-    char str4[] = "def";
-    
-    printf("测试用例1: %s 和 %s\n", str1, str2);
-    if (is_brother_string(str1, str2)) 
-    {
-        printf("结果: 是兄弟字符串\n");
-    } else 
+ else 
     {
         printf("结果: 不是兄弟字符串\n");
     }
@@ -126,12 +112,23 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() 
-{
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-    solve();
-    return 0;
+printf("=== 兄弟字符串 ===\n");
+    
+    // 测试用例
+    char str1[] = "bad";
+    char str2[] = "adb";
+    char str3[] = "abc";
+    char str4[] = "def";
+    
+    printf("测试用例1: %s 和 %s\n", str1, str2);
+    if (is_brother_string(str1, str2)) 
+    {
+        printf("结果: 是兄弟字符串\n");
+
+return 0;
 }

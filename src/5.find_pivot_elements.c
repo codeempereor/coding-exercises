@@ -51,7 +51,7 @@ void find_pivot_elements(int nums[], int n)
     // 计算leftMax：leftMax[i]表示i位置左侧的最大值
     leftMax[0] = nums[0];  // 第一个元素左侧没有元素，设为自身
     for (int i = 1; i < n; i++)
-    {
+{
         if (nums[i - 1] > leftMax[i - 1])
         {
             leftMax[i] = nums[i - 1];
@@ -65,7 +65,7 @@ void find_pivot_elements(int nums[], int n)
     // 计算rightMin：rightMin[i]表示i位置右侧的最小值
     rightMin[n - 1] = nums[n - 1];  // 最后一个元素右侧没有元素，设为自身
     for (int i = n - 2; i >= 0; i--)
-    {
+{
         if (nums[i + 1] < rightMin[i + 1])
         {
             rightMin[i] = nums[i + 1];
@@ -83,7 +83,7 @@ void find_pivot_elements(int nums[], int n)
     {
         // 检查是否满足条件：左侧最大值 <= 当前元素 <= 右侧最小值
         if (leftMax[i] <= nums[i] && nums[i] <= rightMin[i])
-        {
+{
             printf("%d ", nums[i]);
             found = 1;
         }
@@ -114,13 +114,7 @@ void print_array(int arr[], int n)
  * @brief 寻找中间元素
  * @return void
  */
-void solve()
-{
-    printf("=== 寻找中间元素 ===\n");
-    printf("题目：找出数组中满足左边所有数都小于等于它，右边所有数都大于等于它的元素\n\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 4, 5};
+;
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     
     printf("测试用例1:");
@@ -174,11 +168,17 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 寻找中间元素 ===\n");
+    printf("题目：找出数组中满足左边所有数都小于等于它，右边所有数都大于等于它的元素\n\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 4, 5
+
+return 0;
 }

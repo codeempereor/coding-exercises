@@ -57,7 +57,7 @@ int josephus_iterative(int n, int k)
     int result = 1; // f(1, k) = 1
     
     for (int i = 2; i <= n; i++)
-    {
+{
         result = (result + k - 1) % i + 1;
     }
     
@@ -82,7 +82,7 @@ int josephus_simulation(int n, int k)
     int index = 0;  // 当前索引
     
     while (alive > 1)
-    {
+{
         // 找到第k个存活的人
         int count = 0;
         while (count < k)
@@ -107,7 +107,7 @@ int josephus_simulation(int n, int k)
     
     // 找到最后剩下的人
     for (int i = 0; i < n; i++)
-    {
+{
         if (people[i] != 0)
         {
             return people[i];
@@ -121,9 +121,19 @@ int josephus_simulation(int n, int k)
  * @brief 约瑟夫环问题
  * @return void
  */
-void solve()
-{
-    printf("=== 约瑟夫环问题 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 约瑟夫环问题 ===\n");
     printf("题目：n个人围成一圈，从第一个人开始报数，报到k的人出列，求最后剩下的人的编号\n\n");
     
     // 测试用例1：基本情况
@@ -170,17 +180,6 @@ void solve()
     printf("迭代解法结果：%d\n", josephus_iterative(n5, k5));
     printf("模拟解法结果：%d\n", josephus_simulation(n5, k5));
     printf("预期：2\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main() {
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

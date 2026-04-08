@@ -45,13 +45,13 @@ void *my_memmove(void *dest, const void *src, size_t n)
     
     // 如果源地址和目标地址相同，直接返回
     if (d == s)
-    {
+{
         return dest;
     }
     
     // 如果目标地址在源地址之前，或没有重叠，从前向后拷贝
     if (d < s || d >= s + n)
-    {
+{
         for (size_t i = 0; i < n; i++)
         {
             d[i] = s[i];
@@ -61,7 +61,7 @@ void *my_memmove(void *dest, const void *src, size_t n)
     {
         // 有重叠，从后向前拷贝
         for (size_t i = n; i > 0; i--)
-        {
+{
             d[i - 1] = s[i - 1];
         }
     }
@@ -92,13 +92,7 @@ void print_int_array(int arr[], int n)
  * @brief 内存拷贝
  * @return void
  */
-void solve()
-{
-    printf("=== 内存拷贝 ===\n");
-    printf("题目：实现内存拷贝函数，处理内存重叠情况\n\n");
-    
-    // 测试用例1：正常拷贝
-    int arr1[] = {1, 2, 3, 4, 5};
+;
     int dest1[5];
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     
@@ -165,11 +159,17 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 内存拷贝 ===\n");
+    printf("题目：实现内存拷贝函数，处理内存重叠情况\n\n");
+    
+    // 测试用例1：正常拷贝
+    int arr1[] = {1, 2, 3, 4, 5
+
+return 0;
 }

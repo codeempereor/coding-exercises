@@ -77,7 +77,7 @@ int longest_palindrome(const char *str, char *result)
     
     // 暴力法：检查所有子串
     for (int i = 0; i < len; i++)
-    {
+{
         for (int j = i; j < len; j++)
         {
             if (is_palindrome(str, i, j))
@@ -94,7 +94,7 @@ int longest_palindrome(const char *str, char *result)
     
     // 复制结果
     for (int i = 0; i < max_len; i++)
-    {
+{
         result[i] = str[start + i];
     }
     result[max_len] = '\0';
@@ -106,9 +106,19 @@ int longest_palindrome(const char *str, char *result)
  * @brief 最长回文子串
  * @return void
  */
-void solve()
-{
-    printf("=== 最长回文子串 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 最长回文子串 ===\n");
     printf("题目：查找字符串中的最长回文子串\n\n");
     
     char result[MAX_N];
@@ -162,17 +172,6 @@ void solve()
     printf("最长回文子串：%s\n", result);
     printf("长度：%d\n", len5);
     printf("预期：abba，长度：4\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main() {
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

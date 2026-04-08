@@ -25,21 +25,21 @@
  * @brief 完数
  * @return void
  */
-void solve() {
-    // TODO: 实现完数的解决方案
-    printf("=== 完数 ===\n");
-    printf("Solution to be implemented...\n");
-}
+
 
 /**
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+// TODO: 实现完数的解决方案
+    printf("=== 完数 ===\n");
+    printf("Solution to be implemented...\n");
+
+return 0;
 }

@@ -72,12 +72,7 @@ void print_array(int arr[], int n)
  * @brief 数组乘积
  * @return void
  */
-void solve()
-{
-    printf("=== 数组乘积 ===\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 4};
+;
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     int output1[n1];
     
@@ -137,11 +132,16 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 数组乘积 ===\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 4
+
+return 0;
 }

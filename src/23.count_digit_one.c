@@ -48,7 +48,7 @@ int count_digit_one(int n)
             count += higher * factor;
         }
         else if (current == 1)
-        {
+{
             count += higher * factor + lower + 1;
         }
         else
@@ -66,9 +66,19 @@ int count_digit_one(int n)
  * @brief 数字1出现次数
  * @return void
  */
-void solve()
-{
-    printf("=== 数字1出现次数 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 数字1出现次数 ===\n");
     printf("题目：统计从1到n的所有整数中，数字1出现的次数\n\n");
     
     // 测试用例1：基本情况
@@ -88,18 +98,6 @@ void solve()
     int result2 = count_digit_one(n2);
     printf("数字1出现次数:%d\n", result2);
     printf("预期结果：21(1, 10, 11, 12, 13, 21中1出现的次数)\n\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

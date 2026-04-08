@@ -77,11 +77,16 @@ void left_rotate_string(char *str, int k)
 }
 
 /**
- * @brief 字符串左旋转
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-void solve()
+int main()
 {
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
     printf("=== 字符串左旋转 ===\n");
     printf("题目：把字符串前面的若干个字符移动到字符串的尾部\n\n");
     
@@ -132,17 +137,6 @@ void solve()
     
     printf("旋转后：%s\n", str4);
     printf("预期：\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main() {
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

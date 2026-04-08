@@ -92,21 +92,7 @@ int longest_substring_no_repeat(const char *str, char *result)
  * @brief 最长无重复子串
  * @return void
  */
-void solve()
-{
-    printf("=== 最长无重复子串 ===\n");
-    printf("题目：查找字符串中不含重复字符的最长子串\n\n");
-    
-    char result[MAX_N];
-    
-    const char *test_cases[] = {
-        "abcabcbb",
-        "bbbbb",
-        "pwwkew",
-        "",
-        "abcdefg",
-        "abcaefgh"
-    };
+;
     
     int n = sizeof(test_cases) / sizeof(test_cases[0]);
     
@@ -123,11 +109,24 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 最长无重复子串 ===\n");
+    printf("题目：查找字符串中不含重复字符的最长子串\n\n");
+    
+    char result[MAX_N];
+    
+    const char *test_cases[] = {
+        "abcabcbb",
+        "bbbbb",
+        "pwwkew",
+        "",
+        "abcdefg",
+        "abcaefgh"
+
+return 0;
 }

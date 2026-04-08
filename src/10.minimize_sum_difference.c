@@ -74,16 +74,16 @@ int minimize_sum_difference(int a[], int b[], int n)
     
     // 遍历所有可能的交换
     for (int i = 0; i < n; i++)
-    {
+{
         // 计算交换a[i]和b[i]后的和变化
         int delta = b[i] - a[i];
         
         // 正向或反向遍历，避免重复计算
         if (delta > 0)
-        {
+{
             // 正向遍历
             for (int j = max_possible; j >= delta; j--)
-            {
+{
                 if (dp[j - delta])
                 {
                     dp[j] = 1;
@@ -94,7 +94,7 @@ int minimize_sum_difference(int a[], int b[], int n)
         {
             // 反向遍历
             for (int j = 0; j <= max_possible + delta; j++)
-            {
+{
                 if (dp[j - delta])
                 {
                     dp[j] = 1;
@@ -141,13 +141,7 @@ void print_array(int arr[], int n)
  * @brief 最小化和差
  * @return void
  */
-void solve()
-{
-    printf("=== 最小化和差 ===\n");
-    printf("题目：通过交换a,b中的元素，使[序列a元素的和]与[序列b元素的和]之间的差最小\n\n");
-    
-    // 测试用例1：基本情况
-    int a1[] = {1, 2, 3, 4, 5};
+;
     int b1[] = {6, 7, 8, 9, 10};
     int n1 = sizeof(a1) / sizeof(a1[0]);
     
@@ -199,11 +193,17 @@ void solve()
  * @brief 主函数
  * @return int 程序退出状态码
  */
-int main() {
-    #ifdef _WIN32
+int main()
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 最小化和差 ===\n");
+    printf("题目：通过交换a,b中的元素，使[序列a元素的和]与[序列b元素的和]之间的差最小\n\n");
+    
+    // 测试用例1：基本情况
+    int a1[] = {1, 2, 3, 4, 5
+
+return 0;
 }

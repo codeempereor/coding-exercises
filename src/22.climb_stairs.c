@@ -105,9 +105,19 @@ int climb_stairs_optimized(int n)
  * @brief 爬楼梯
  * @return void
  */
-void solve()
-{
-    printf("=== 爬楼梯 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 爬楼梯 ===\n");
     printf("题目：假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？\n\n");
     
     // 测试用例1：基本情况
@@ -133,18 +143,6 @@ void solve()
     printf("动态规划：%d\n", climb_stairs_dp(n2));
     printf("空间优化：%d\n", climb_stairs_optimized(n2));
     printf("预期结果：89\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

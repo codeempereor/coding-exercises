@@ -45,7 +45,7 @@ int coin_combination(int coins[], int n, int amount)
     dp[0] = 1; // 凑成金额0的方法数为1
     
     for (int i = 0; i < n; i++)
-    {
+{
         int coin = coins[i];
         for (int j = coin; j <= amount; j++)
         {
@@ -74,13 +74,7 @@ void print_array(int arr[], int len)
  * @brief 硬币组合数
  * @return void
  */
-void solve()
-{
-    printf("=== 硬币组合数 ===\n");
-    printf("题目：计算凑成目标金额的硬币组合数\n\n");
-    
-    // 测试用例1：基本情况
-    int coins1[] = {1, 2, 5};
+;
     int n1 = sizeof(coins1) / sizeof(coins1[0]);
     int amount1 = 5;
     
@@ -124,11 +118,16 @@ void solve()
  * @return int 程序退出状态码
  */
 int main()
-{
-    #ifdef _WIN32
+{#ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
-    solve();
-    return 0;
+
+printf("=== 硬币组合数 ===\n");
+    printf("题目：计算凑成目标金额的硬币组合数\n\n");
+    
+    // 测试用例1：基本情况
+    int coins1[] = {1, 2, 5
+
+return 0;
 }

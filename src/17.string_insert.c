@@ -48,7 +48,7 @@ int string_insert(const char *str, const char *insert_str, int pos, char *result
     
     // 计算字符串长度
     while (str[str_len] != '\0')
-    {
+{
         str_len++;
     }
     while (insert_str[insert_len] != '\0')
@@ -58,10 +58,10 @@ int string_insert(const char *str, const char *insert_str, int pos, char *result
     
     // 检查插入位置是否有效
     if (pos < 0 || pos > str_len)
-    {
+{
         // 无效位置，直接复制原字符串
         for (int i = 0; i <= str_len; i++)
-        {
+{
             result[i] = str[i];
         }
         return str_len;
@@ -69,19 +69,19 @@ int string_insert(const char *str, const char *insert_str, int pos, char *result
     
     // 复制原字符串的前pos个字符
     for (int i = 0; i < pos; i++)
-    {
+{
         result[i] = str[i];
     }
     
     // 插入子串
     for (int i = 0; i < insert_len; i++)
-    {
+{
         result[pos + i] = insert_str[i];
     }
     
     // 复制原字符串的剩余部分
     for (int i = pos; i <= str_len; i++)
-    {
+{
         result[pos + insert_len + i - pos] = str[i];
     }
     
@@ -92,9 +92,19 @@ int string_insert(const char *str, const char *insert_str, int pos, char *result
  * @brief 字符串插入
  * @return void
  */
-void solve()
-{
-    printf("=== 字符串插入 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 字符串插入 ===\n");
     printf("题目：在字符串指定位置插入子串\n\n");
     
     char result[MAX_N];
@@ -163,17 +173,6 @@ void solve()
     string_insert(str5, insert5, pos5, result);
     printf("结果：%s\n", result);
     printf("预期：Hello（保持不变）\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main() {
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }

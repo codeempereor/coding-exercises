@@ -50,7 +50,7 @@ int substring_count(const char *str, const char *substr)
     
     // 计算字符串长度
     while (str[str_len] != '\0')
-    {
+{
         str_len++;
     }
     while (substr[substr_len] != '\0')
@@ -60,7 +60,7 @@ int substring_count(const char *str, const char *substr)
     
     // 遍历主串，查找子串
     for (int i = 0; i <= str_len - substr_len; i++)
-    {
+{
         int match = 1;
         for (int j = 0; j < substr_len; j++)
         {
@@ -83,9 +83,19 @@ int substring_count(const char *str, const char *substr)
  * @brief 子串出现次数
  * @return void
  */
-void solve()
-{
-    printf("=== 子串出现次数 ===\n");
+
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{#ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+printf("=== 子串出现次数 ===\n");
     printf("题目：计算子串在主串中出现的次数\n\n");
     
     // 测试用例1：子串出现多次
@@ -142,17 +152,6 @@ void solve()
     int count5 = substring_count(str5, substr5);
     printf("出现次数：%d\n", count5);
     printf("预期：3（位置0, 1, 2，允许重叠）\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main() {
-    #ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-    solve();
-    return 0;
+return 0;
 }
