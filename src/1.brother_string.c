@@ -72,10 +72,28 @@ int is_brother_string(const char *str1, const char *str2)
 }
 
 /**
- * @brief 兄弟字符串
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
- else 
+int main()
+{
+    #ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 兄弟字符串 ===\n");
+    
+    // 测试用例
+    char str1[] = "bad";
+    char str2[] = "adb";
+    char str3[] = "abc";
+    char str4[] = "def";
+    
+    printf("测试用例1: %s 和 %s\n", str1, str2);
+    if (is_brother_string(str1, str2)) 
+    {
+        printf("结果: 是兄弟字符串\n");
+    } else 
     {
         printf("结果: 不是兄弟字符串\n");
     }
@@ -103,29 +121,6 @@ int is_brother_string(const char *str1, const char *str2)
     {
         printf("结果: 不是兄弟字符串\n");
     }
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 兄弟字符串 ===\n");
-    
-    // 测试用例
-    char str1[] = "bad";
-    char str2[] = "adb";
-    char str3[] = "abc";
-    char str4[] = "def";
-    
-    printf("测试用例1: %s 和 %s\n", str1, str2);
-    if (is_brother_string(str1, str2)) 
-    {
-        printf("结果: 是兄弟字符串\n");
-
-return 0;
+    return 0;
 }
