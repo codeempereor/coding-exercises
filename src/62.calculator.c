@@ -28,9 +28,77 @@
 
 /**
  * @brief 整数计算器
- * @return void
+ * @param s 表达式字符串
+ * @return int 计算结果
  */
-
+int calculate(char* s)
+{
+    int stack[1000];
+    int top = -1;
+    int num = 0;
+    char sign = '+';
+    int i = 0;
+    
+    while (s[i] != '\0')
+    {
+        if (s[i] >= '0' && s[i] <= '9')
+        {
+            num = num * 10 + (s[i] - '0');
+        }
+        else if (s[i] == '(')
+        {
+            // 递归处理括号
+            int j = i;
+            int count = 0;
+            while (s[j] != '\0')
+            {
+                if (s[j] == '(') count++;
+                if (s[j] == ')') count--;
+                if (count == 0) break;
+                j++;
+            }
+            char temp[1000];
+            int k = 0;
+            for (int m = i + 1; m < j; m++)
+            {
+                temp[k++] = s[m];
+            }
+            temp[k] = '\0';
+            num = calculate(temp);
+            i = j;
+        }
+        
+        if (s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/' || s[i] == '\0' || s[i + 1] == '\0')
+        {
+            if (sign == '+')
+            {
+                stack[++top] = num;
+            }
+            else if (sign == '-')
+            {
+                stack[++top] = -num;
+            }
+            else if (sign == '*')
+            {
+                stack[top] *= num;
+            }
+            else if (sign == '/')
+            {
+                stack[top] /= num;
+            }
+            sign = s[i];
+            num = 0;
+        }
+        i++;
+    }
+    
+    int result = 0;
+    for (int j = 0; j <= top; j++)
+    {
+        result += stack[j];
+    }
+    return result;
+}
 
 /**
  * @brief 主函数
@@ -43,9 +111,24 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-// TODO: 实现整数计算器的解决方案
     printf("=== 整数计算器 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：实现一个基本的计算器，支持加减乘除和括号\n\n");
+    
+    // 测试用例
+    char* test_cases[] = {
+        "3+2*2",
+        "3/2",
+        "3+5/2",
+        "(3+2)*2",
+        "3*(4+5)/2"
+    };
+    int test_count = 5;
+    
+    for (int i = 0; i < test_count; i++)
+    {
+        int result = calculate(test_cases[i]);
+        printf("测试用例%d: %s = %d\n", i + 1, test_cases[i], result);
+    }
 
-return 0;
+    return 0;
 }

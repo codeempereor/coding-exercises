@@ -28,9 +28,48 @@
 
 /**
  * @brief 丑数
- * @return void
+ * @param n 第n个丑数
+ * @return int 第n个丑数
  */
+int nthUglyNumber(int n)
+{
+    int dp[n];
+    dp[0] = 1;
+    int p2 = 0, p3 = 0, p5 = 0;
+    
+    for (int i = 1; i < n; i++)
+    {
+        int next2 = dp[p2] * 2;
+        int next3 = dp[p3] * 3;
+        int next5 = dp[p5] * 5;
+        dp[i] = next2 < next3 ? (next2 < next5 ? next2 : next5) : (next3 < next5 ? next3 : next5);
+        
+        if (dp[i] == next2) p2++;
+        if (dp[i] == next3) p3++;
+        if (dp[i] == next5) p5++;
+    }
+    
+    return dp[n - 1];
+}
 
+/**
+ * @brief 判断是否为丑数
+ * @param num 数字
+ * @return int 是否为丑数
+ */
+int isUgly(int num)
+{
+    if (num <= 0)
+    {
+        return 0;
+    }
+    
+    while (num % 2 == 0) num /= 2;
+    while (num % 3 == 0) num /= 3;
+    while (num % 5 == 0) num /= 5;
+    
+    return num == 1;
+}
 
 /**
  * @brief 主函数
@@ -43,9 +82,33 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-// TODO: 实现丑数的解决方案
     printf("=== 丑数 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：丑数是只包含质因数2、3和5的正整数\n\n");
+    
+    // 测试用例1：第n个丑数
+    int test_cases_n[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int test_count_n = 10;
+    
+    printf("测试用例1：第n个丑数\n");
+    for (int i = 0; i < test_count_n; i++)
+    {
+        int n = test_cases_n[i];
+        int result = nthUglyNumber(n);
+        printf("第%d个丑数: %d\n", n, result);
+    }
+    printf("\n");
+    
+    // 测试用例2：判断是否为丑数
+    int test_cases_is[] = {6, 8, 14, 1, 0, -1};
+    int test_count_is = 6;
+    
+    printf("测试用例2：判断是否为丑数\n");
+    for (int i = 0; i < test_count_is; i++)
+    {
+        int num = test_cases_is[i];
+        int result = isUgly(num);
+        printf("%d: %s\n", num, result ? "是丑数" : "不是丑数");
+    }
 
-return 0;
+    return 0;
 }

@@ -28,9 +28,56 @@
 
 /**
  * @brief 鸡蛋掉落
- * @return void
+ * @param k 鸡蛋数
+ * @param n 楼层数
+ * @return int 最小操作次数
  */
-
+int superEggDrop(int k, int n)
+{
+    int dp[k + 1][n + 1];
+    
+    // 初始化
+    for (int i = 1; i <= k; i++)
+    {
+        dp[i][0] = 0;
+        dp[i][1] = 1;
+    }
+    for (int j = 1; j <= n; j++)
+    {
+        dp[1][j] = j;
+    }
+    
+    // 填充dp表
+    for (int i = 2; i <= k; i++)
+    {
+        for (int j = 2; j <= n; j++)
+        {
+            dp[i][j] = n;
+            int left = 1, right = j;
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+                int broken = dp[i - 1][mid - 1];
+                int not_broken = dp[i][j - mid];
+                int res = 1 + (broken > not_broken ? broken : not_broken);
+                if (broken < not_broken)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+                if (res < dp[i][j])
+                {
+                    dp[i][j] = res;
+                }
+            }
+        }
+    }
+    
+    return dp[k][n];
+}
 
 /**
  * @brief 主函数
@@ -43,9 +90,25 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-// TODO: 实现鸡蛋掉落的解决方案
     printf("=== 鸡蛋掉落 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：给定k个鸡蛋和n层楼，找到最低的楼层使得鸡蛋会碎\n\n");
+    
+    // 测试用例
+    int test_cases[][2] = {
+        {1, 2},
+        {2, 6},
+        {3, 14},
+        {2, 100}
+    };
+    int test_count = 4;
+    
+    for (int i = 0; i < test_count; i++)
+    {
+        int k = test_cases[i][0];
+        int n = test_cases[i][1];
+        int result = superEggDrop(k, n);
+        printf("测试用例%d: k=%d, n=%d → %d\n", i + 1, k, n, result);
+    }
 
-return 0;
+    return 0;
 }

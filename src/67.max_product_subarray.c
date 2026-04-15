@@ -28,9 +28,31 @@
 
 /**
  * @brief 最大乘积子数组
- * @return void
+ * @param nums 数组
+ * @param numsSize 数组大小
+ * @return int 最大乘积
  */
-
+int maxProduct(int* nums, int numsSize)
+{
+    if (numsSize == 0)
+    {
+        return 0;
+    }
+    
+    int max_so_far = nums[0];
+    int min_so_far = nums[0];
+    int result = nums[0];
+    
+    for (int i = 1; i < numsSize; i++)
+    {
+        int temp = max_so_far;
+        max_so_far = nums[i] > max_so_far * nums[i] ? (nums[i] > min_so_far * nums[i] ? nums[i] : min_so_far * nums[i]) : (max_so_far * nums[i] > min_so_far * nums[i] ? max_so_far * nums[i] : min_so_far * nums[i]);
+        min_so_far = nums[i] < temp * nums[i] ? (nums[i] < min_so_far * nums[i] ? nums[i] : min_so_far * nums[i]) : (temp * nums[i] < min_so_far * nums[i] ? temp * nums[i] : min_so_far * nums[i]);
+        result = result > max_so_far ? result : max_so_far;
+    }
+    
+    return result;
+}
 
 /**
  * @brief 主函数
@@ -43,9 +65,35 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-// TODO: 实现最大乘积子数组的解决方案
     printf("=== 最大乘积子数组 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：找到一个数组中乘积最大的连续子数组\n\n");
+    
+    // 测试用例
+    int test_cases[][5] = {
+        {2, 3, -2, 4, 0},  // nums = [2, 3, -2, 4]
+        {-2, 0, -1, 0, 0},  // nums = [-2, 0, -1]
+        {-2, 3, -4, 0, 0},  // nums = [-2, 3, -4]
+        {0, 2, 0, 0, 0},     // nums = [0, 2]
+        {-1, -2, -9, -6, 0}  // nums = [-1, -2, -9, -6]
+    };
+    int test_sizes[] = {4, 3, 3, 2, 4};
+    int test_count = 5;
+    
+    for (int i = 0; i < test_count; i++)
+    {
+        int nums[5];
+        for (int j = 0; j < test_sizes[i]; j++)
+        {
+            nums[j] = test_cases[i][j];
+        }
+        int result = maxProduct(nums, test_sizes[i]);
+        printf("测试用例%d: ", i + 1);
+        for (int j = 0; j < test_sizes[i]; j++)
+        {
+            printf("%d ", nums[j]);
+        }
+        printf("→ %d\n", result);
+    }
 
-return 0;
+    return 0;
 }

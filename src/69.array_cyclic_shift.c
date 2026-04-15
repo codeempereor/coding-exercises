@@ -27,10 +27,41 @@
 #define MAX_N 100
 
 /**
- * @brief 数组循环移位
- * @return void
+ * @brief 反转数组
+ * @param nums 数组
+ * @param start 起始位置
+ * @param end 结束位置
  */
+void reverse(int* nums, int start, int end)
+{
+    while (start < end)
+    {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+}
 
+/**
+ * @brief 数组循环移位
+ * @param nums 数组
+ * @param numsSize 数组大小
+ * @param k 移位次数
+ */
+void rotate(int* nums, int numsSize, int k)
+{
+    k = k % numsSize;
+    if (k == 0)
+    {
+        return;
+    }
+    
+    reverse(nums, 0, numsSize - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, numsSize - 1);
+}
 
 /**
  * @brief 主函数
@@ -43,9 +74,44 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-// TODO: 实现数组循环移位的解决方案
     printf("=== 数组循环移位 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：将数组向右循环移动k个位置\n\n");
+    
+    // 测试用例
+    int test_cases[][5] = {
+        {1, 2, 3, 4, 5},
+        {0, 1, 2, 0, 0},
+        {-1, -100, 3, 99, 0}
+    };
+    int test_sizes[] = {5, 3, 4};
+    int test_ks[] = {2, 4, 2};
+    int test_count = 3;
+    
+    for (int i = 0; i < test_count; i++)
+    {
+        int nums[5];
+        for (int j = 0; j < test_sizes[i]; j++)
+        {
+            nums[j] = test_cases[i][j];
+        }
+        
+        printf("测试用例%d: ", i + 1);
+        printf("原数组: ");
+        for (int j = 0; j < test_sizes[i]; j++)
+        {
+            printf("%d ", nums[j]);
+        }
+        printf("k=%d\n", test_ks[i]);
+        
+        rotate(nums, test_sizes[i], test_ks[i]);
+        
+        printf("移位后: ");
+        for (int j = 0; j < test_sizes[i]; j++)
+        {
+            printf("%d ", nums[j]);
+        }
+        printf("\n\n");
+    }
 
-return 0;
+    return 0;
 }

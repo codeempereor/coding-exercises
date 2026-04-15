@@ -27,6 +27,31 @@
 #define MAX_N 100
 
 /**
+ * @brief 整数划分
+ * @param n 整数
+ * @return int 划分数
+ */
+int integerPartition(int n)
+{
+    int dp[n + 1];
+    for (int i = 0; i <= n; i++)
+    {
+        dp[i] = 0;
+    }
+    dp[0] = 1;
+    
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = i; j <= n; j++)
+        {
+            dp[j] += dp[j - i];
+        }
+    }
+    
+    return dp[n];
+}
+
+/**
  * @brief 主函数
  * @return int 程序退出状态码
  */
@@ -37,9 +62,19 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-// TODO: 实现整数划分的解决方案
     printf("=== 整数划分 ===\n");
-    printf("Solution to be implemented...\n");
+    printf("题目：计算将整数n划分为若干正整数之和的不同方式的数目\n\n");
+    
+    // 测试用例
+    int test_cases[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int test_count = 10;
+    
+    for (int i = 0; i < test_count; i++)
+    {
+        int n = test_cases[i];
+        int result = integerPartition(n);
+        printf("测试用例%d: n=%d → %d\n", i + 1, n, result);
+    }
 
-return 0;
+    return 0;
 }
