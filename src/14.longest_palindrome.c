@@ -108,12 +108,13 @@ int longest_palindrome(const char *str, char *result)
  * @return int 程序退出状态码
  */
 int main()
-{#ifdef _WIN32
+{
+    #ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-printf("=== 最长回文子串 ===\n");
+    printf("=== 最长回文子串 ===\n");
     printf("题目：查找字符串中的最长回文子串\n\n");
     
     char result[MAX_N];
@@ -168,5 +169,5 @@ printf("=== 最长回文子串 ===\n");
     printf("长度：%d\n", len5);
     printf("预期：abba，长度：4\n");
 
-return 0;
+    return 0;
 }

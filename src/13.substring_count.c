@@ -85,12 +85,13 @@ int substring_count(const char *str, const char *substr)
  * @return int 程序退出状态码
  */
 int main()
-{#ifdef _WIN32
+{
+    #ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-printf("=== 子串出现次数 ===\n");
+    printf("=== 子串出现次数 ===\n");
     printf("题目：计算子串在主串中出现的次数\n\n");
     
     // 测试用例1：子串出现多次
@@ -148,5 +149,5 @@ printf("=== 子串出现次数 ===\n");
     printf("出现次数：%d\n", count5);
     printf("预期：3（位置0, 1, 2，允许重叠）\n");
 
-return 0;
+    return 0;
 }

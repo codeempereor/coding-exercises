@@ -20,6 +20,7 @@
  *   - 2026-04-15 三道渊: 初始化文件
  * ============================================================================ */
 #include <stdio.h>
+#include <string.h>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -104,10 +105,21 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief memcpy实现
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== memcpy实现 ===\n");
+    printf("题目：实现memcpy和memmove函数\n\n");
+    
+    // 测试用例1：正常memcpy
+    int arr1[] = {1, 2, 3, 4, 5};
     int dest1[5];
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     
@@ -182,23 +194,6 @@ void print_array(int arr[], int n)
     print_array(dest5, 3);
     printf("\n");
     printf("预期：[0, 0, 0]（未改变）\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== memcpy实现 ===\n");
-    printf("题目：实现memcpy和memmove函数\n\n");
-    
-    // 测试用例1：正常memcpy
-    int arr1[] = {1, 2, 3, 4, 5
-
-return 0;
+    return 0;
 }

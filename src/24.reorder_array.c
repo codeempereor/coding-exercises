@@ -85,10 +85,21 @@ void print_array(int arr[], int len)
 }
 
 /**
- * @brief 奇偶重排
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 奇偶重排 ===\n");
+    printf("题目：将数组中的奇数放在前面，偶数放在后面\n\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 4, 5, 6, 7, 8};
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     
     printf("测试用例1：\n");
@@ -122,23 +133,6 @@ void print_array(int arr[], int len)
     printf("重排后：");
     print_array(nums3, n3);
     printf("预期结果：2 4 6 8 10\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 奇偶重排 ===\n");
-    printf("题目：将数组中的奇数放在前面，偶数放在后面\n\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 4, 5, 6, 7, 8
-
-return 0;
+    return 0;
 }

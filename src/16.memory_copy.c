@@ -20,6 +20,7 @@
  *   - 2026-04-15 三道渊: 初始化文件
  * ============================================================================ */
 #include <stdio.h>
+#include <string.h>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -84,10 +85,21 @@ void print_int_array(int arr[], int n)
 }
 
 /**
- * @brief 内存拷贝
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 内存拷贝 ===\n");
+    printf("题目：实现内存拷贝函数，处理内存重叠情况\n\n");
+    
+    // 测试用例1：正常拷贝
+    int arr1[] = {1, 2, 3, 4, 5};
     int dest1[5];
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     
@@ -148,23 +160,6 @@ void print_int_array(int arr[], int n)
     
     printf("目标字符串：%s\n", dest2);
     printf("预期：Hello, World!\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 内存拷贝 ===\n");
-    printf("题目：实现内存拷贝函数，处理内存重叠情况\n\n");
-    
-    // 测试用例1：正常拷贝
-    int arr1[] = {1, 2, 3, 4, 5
-
-return 0;
+    return 0;
 }

@@ -52,10 +52,21 @@ int min_subarray_sum(int arr[], int n)
 }
 
 /**
- * @brief 最小子数组和
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-,
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 最小子数组和 ===\n");
+    printf("题目：查找数组中和最小的连续子数组\n\n");
+    
+    int test_cases[][10] = {
+        {1, -2, 3, -1, 2, -4, 5},
         {-2, -3, -1, -4},
         {1, 2, 3, 4, 5},
         {5, -1, 2, -3, 1},
@@ -80,23 +91,6 @@ int min_subarray_sum(int arr[], int n)
         printf("]\n");
         printf("  最小子数组和: %d\n\n", min_sum);
     }
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 最小子数组和 ===\n");
-    printf("题目：查找数组中和最小的连续子数组\n\n");
-    
-    int test_cases[][10] = {
-        {1, -2, 3, -1, 2, -4, 5
-
-return 0;
+    return 0;
 }

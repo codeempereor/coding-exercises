@@ -101,10 +101,21 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief 查找公共元素
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 查找公共元素 ===\n");
+    printf("题目：查找两个数组中的所有公共元素（去重）\n\n");
+    
+    // 测试用例1：有公共元素
+    int arr1[] = {1, 2, 3, 4, 5};
     int arr2[] = {4, 5, 6, 7, 8};
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
@@ -160,23 +171,6 @@ void print_array(int arr[], int n)
     print_array(result, count3);
     printf("\n公共元素个数：%d\n", count3);
     printf("预期：[2, 3]，个数：2（去重）\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 查找公共元素 ===\n");
-    printf("题目：查找两个数组中的所有公共元素（去重）\n\n");
-    
-    // 测试用例1：有公共元素
-    int arr1[] = {1, 2, 3, 4, 5
-
-return 0;
+    return 0;
 }

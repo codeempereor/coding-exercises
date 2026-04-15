@@ -123,12 +123,13 @@ int josephus_simulation(int n, int k)
  * @return int 程序退出状态码
  */
 int main()
-{#ifdef _WIN32
+{
+    #ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-printf("=== 约瑟夫环问题 ===\n");
+    printf("=== 约瑟夫环问题 ===\n");
     printf("题目：n个人围成一圈，从第一个人开始报数，报到k的人出列，求最后剩下的人的编号\n\n");
     
     // 测试用例1：基本情况
@@ -176,5 +177,5 @@ printf("=== 约瑟夫环问题 ===\n");
     printf("模拟解法结果：%d\n", josephus_simulation(n5, k5));
     printf("预期：2\n");
 
-return 0;
+    return 0;
 }

@@ -27,17 +27,7 @@
 
 #define MAX_N 100001
 
-/**
- * @brief 计算字符串长度
- * @param s 字符串
- * @return int 字符串长度
- */
-int strlen(const char *s)
-{
-    int len = 0;
-    while (s[len]) len++;
-    return len;
-}
+
 
 /**
  * @brief 二进制字符串相加

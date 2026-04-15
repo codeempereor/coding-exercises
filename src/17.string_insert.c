@@ -20,6 +20,7 @@
  *   - 2026-04-15 三道渊: 初始化文件
  * ============================================================================ */
 #include <stdio.h>
+#include <string.h>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -92,12 +93,13 @@ int string_insert(const char *str, const char *insert_str, int pos, char *result
  * @return int 程序退出状态码
  */
 int main()
-{#ifdef _WIN32
+{
+    #ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-printf("=== 字符串插入 ===\n");
+    printf("=== 字符串插入 ===\n");
     printf("题目：在字符串指定位置插入子串\n\n");
     
     char result[MAX_N];
@@ -167,5 +169,5 @@ printf("=== 字符串插入 ===\n");
     printf("结果：%s\n", result);
     printf("预期：Hello（保持不变）\n");
 
-return 0;
+    return 0;
 }

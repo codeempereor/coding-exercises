@@ -103,10 +103,21 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief 最大等和分割
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 最大等和分割 ===\n");
+    printf("题目：将数组分割成两部分，使两部分和相等，返回能分割的最大子数组长度\n\n");
+    
+    // 测试用例1：可以分割
+    int arr1[] = {1, 2, 3, 4, 5, 6};
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     
     printf("测试用例1：\n");
@@ -144,23 +155,6 @@ void print_array(int arr[], int n)
     int result4 = max_partition_equality(arr4, n4);
     printf("最大等和分割长度：%d\n", result4);
     printf("预期：3（分割为[3,1,2]和[3,1]）\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 最大等和分割 ===\n");
-    printf("题目：将数组分割成两部分，使两部分和相等，返回能分割的最大子数组长度\n\n");
-    
-    // 测试用例1：可以分割
-    int arr1[] = {1, 2, 3, 4, 5, 6
-
-return 0;
+    return 0;
 }

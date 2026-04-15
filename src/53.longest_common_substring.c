@@ -31,7 +31,7 @@
  * @param s 字符串
  * @return int 字符串长度
  */
-int strlen(const char *s)
+int my_strlen(const char *s)
 {
     int len = 0;
     while (s[len]) len++;
@@ -46,8 +46,8 @@ int strlen(const char *s)
  */
 char* longest_common_substring(char *str1, char *str2)
 {
-    int len1 = strlen(str1);
-    int len2 = strlen(str2);
+    int len1 = my_strlen(str1);
+    int len2 = my_strlen(str2);
     
     if (len1 == 0 || len2 == 0)
     {

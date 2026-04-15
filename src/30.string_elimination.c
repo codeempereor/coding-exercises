@@ -69,33 +69,17 @@ int string_elimination(const char *str, char *result)
 }
 
 /**
- * @brief 字符串消除
- * @return void
- */
-;
-    
-    int n = sizeof(test_cases) / sizeof(test_cases[0]);
-    
-    for (int i = 0; i < n; i++)
-    {
-        int len = string_elimination(test_cases[i], result);
-        printf("测试用例%d: \"%s\"\n", i + 1, test_cases[i]);
-        printf("  消除后: \"%s\"\n", result);
-        printf("  长度: %d\n\n", len);
-    }
-}
-
-/**
  * @brief 主函数
  * @return int 程序退出状态码
  */
 int main()
-{#ifdef _WIN32
+{
+    #ifdef _WIN32
     // 设置控制台输出为UTF-8
     SetConsoleOutputCP(CP_UTF8);
     #endif
 
-printf("=== 字符串消除 ===\n");
+    printf("=== 字符串消除 ===\n");
     printf("题目：消除字符串中连续的重复字符\n\n");
     
     char result[MAX_N];
@@ -107,6 +91,17 @@ printf("=== 字符串消除 ===\n");
         "aaaa",
         "abc",
         ""
+    };
+    
+    int n = sizeof(test_cases) / sizeof(test_cases[0]);
+    
+    for (int i = 0; i < n; i++)
+    {
+        int len = string_elimination(test_cases[i], result);
+        printf("测试用例%d: \"%s\"\n", i + 1, test_cases[i]);
+        printf("  消除后: \"%s\"\n", result);
+        printf("  长度: %d\n\n", len);
+    }
 
-return 0;
+    return 0;
 }

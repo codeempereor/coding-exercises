@@ -115,10 +115,22 @@ void float_to_string(double num, char *str, int precision)
 }
 
 /**
- * @brief 浮点数转字符串
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 浮点数转字符串 ===\n");
+    printf("题目：将浮点数转换为字符串表示\n\n");
+    
+    char str[MAX_N];
+    
+    double nums[] = {123.456, -789.123, 0.123, -0.456, 123.0};
     int n = sizeof(nums) / sizeof(nums[0]);
     
     for (int i = 0; i < n; i++)
@@ -136,24 +148,6 @@ void float_to_string(double num, char *str, int precision)
     
     float_to_string(3.1415926, str, 6);
     printf("精度6: %.6f -> %s\n", 3.1415926, str);
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 浮点数转字符串 ===\n");
-    printf("题目：将浮点数转换为字符串表示\n\n");
-    
-    char str[MAX_N];
-    
-    double nums[] = {123.456, -789.123, 0.123, -0.456, 123.0
-
-return 0;
+    return 0;
 }

@@ -32,7 +32,7 @@
  * @param s 字符串
  * @return int 字符串长度
  */
-int strlen(const char *s)
+int my_strlen(const char *s)
 {
     int len = 0;
     while (s[len]) len++;
@@ -47,8 +47,8 @@ int strlen(const char *s)
  */
 char* add_strings(char *num1, char *num2)
 {
-    int len1 = strlen(num1);
-    int len2 = strlen(num2);
+    int len1 = my_strlen(num1);
+    int len2 = my_strlen(num2);
     int max_len = len1 > len2 ? len1 : len2;
     int carry = 0;
     static char result[MAX_N];

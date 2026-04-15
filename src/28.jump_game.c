@@ -60,10 +60,21 @@ int can_jump(int nums[], int n)
 }
 
 /**
- * @brief 跳跃游戏
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-,
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 跳跃游戏 ===\n");
+    printf("题目：判断是否能够从数组起点跳到终点\n\n");
+    
+    int test_cases[][10] = {
+        {2, 3, 1, 1, 4},
         {3, 2, 1, 0, 4},
         {0},
         {1},
@@ -89,23 +100,6 @@ int can_jump(int nums[], int n)
         printf("]\n");
         printf("  能否跳到终点: %s\n\n", can_reach ? "是" : "否");
     }
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 跳跃游戏 ===\n");
-    printf("题目：判断是否能够从数组起点跳到终点\n\n");
-    
-    int test_cases[][10] = {
-        {2, 3, 1, 1, 4
-
-return 0;
+    return 0;
 }
