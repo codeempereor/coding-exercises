@@ -125,10 +125,22 @@ int add_element(UnionFind *uf, const char *str)
 }
 
 /**
- * @brief 合并集合
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-, {bbb ddd}, {eee fff}, {ggg}, {ddd hhh}
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 合并集合 ===\n");
+    
+    UnionFind uf;
+    init_union_find(&uf);
+    
+    // 测试用例
     char sets[5][100] = 
     {
         "aaa bbb ccc",
@@ -140,7 +152,7 @@ int add_element(UnionFind *uf, const char *str)
     
     // 处理每个集合
     for (int i = 0; i < 5; i++)
-{
+    {
         char *token = strtok(sets[i], " ");
         int first_idx = -1;
         
@@ -192,24 +204,6 @@ int add_element(UnionFind *uf, const char *str)
             printf("}\n");
         }
     }
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 合并集合 ===\n");
-    
-    UnionFind uf;
-    init_union_find(&uf);
-    
-    // 测试用例：{aaa bbb ccc
-
-return 0;
+    return 0;
 }

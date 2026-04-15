@@ -91,10 +91,21 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief 多数元素
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 多数元素 ===\n");
+    printf("题目：找出数组中出现次数超过数组长度一半的数字\n\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 2, 2, 2, 5, 4, 2};
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     
     printf("测试用例1:");
@@ -140,23 +151,6 @@ void print_array(int arr[], int n)
     int result4 = find_majority_element(nums4, n4);
     printf("多数元素：%d\n", result4);
     printf("预期:2\n\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 多数元素 ===\n");
-    printf("题目：找出数组中出现次数超过数组长度一半的数字\n\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 2, 2, 2, 5, 4, 2
-
-return 0;
+    return 0;
 }

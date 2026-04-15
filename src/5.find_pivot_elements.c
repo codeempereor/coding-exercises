@@ -106,10 +106,21 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief 寻找中间元素
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 寻找中间元素 ===\n");
+    printf("题目：找出数组中满足左边所有数都小于等于它，右边所有数都大于等于它的元素\n\n");
+    
+    // 测试用例1：基本情况
+    int nums1[] = {1, 2, 3, 4, 5};
     int n1 = sizeof(nums1) / sizeof(nums1[0]);
     
     printf("测试用例1:");
@@ -157,23 +168,6 @@ void print_array(int arr[], int n)
     printf("说明:只有一个元素，自然满足条件\n");
     find_pivot_elements(nums5, n5);
     printf("预期:42\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 寻找中间元素 ===\n");
-    printf("题目：找出数组中满足左边所有数都小于等于它，右边所有数都大于等于它的元素\n\n");
-    
-    // 测试用例1：基本情况
-    int nums1[] = {1, 2, 3, 4, 5
-
-return 0;
+    return 0;
 }

@@ -73,10 +73,22 @@ void rotate_matrix(int matrix[][MAX_N], int n)
 }
 
 /**
- * @brief 矩阵旋转
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-,
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 矩阵旋转 ===\n");
+    
+    // 测试用例1：2x2矩阵
+    int matrix1[2][MAX_N] = 
+    {
+        {1, 2},
         {3, 4}
     };
     
@@ -120,24 +132,6 @@ void rotate_matrix(int matrix[][MAX_N], int n)
     
     printf("旋转后矩阵3 (4x4):\n");
     print_matrix(matrix3, 4);
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 矩阵旋转 ===\n");
-    
-    // 测试用例1：2x2矩阵
-    int matrix1[2][MAX_N] = 
-    {
-        {1, 2
-
-return 0;
+    return 0;
 }

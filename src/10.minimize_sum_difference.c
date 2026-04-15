@@ -132,10 +132,21 @@ void print_array(int arr[], int n)
 }
 
 /**
- * @brief 最小化和差
- * @return void
+ * @brief 主函数
+ * @return int 程序退出状态码
  */
-;
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    printf("=== 最小化和差 ===\n");
+    printf("题目：通过交换a,b中的元素，使[序列a元素的和]与[序列b元素的和]之间的差最小\n\n");
+    
+    // 测试用例1：基本情况
+    int a1[] = {1, 2, 3, 4, 5};
     int b1[] = {6, 7, 8, 9, 10};
     int n1 = sizeof(a1) / sizeof(a1[0]);
     
@@ -181,23 +192,6 @@ void print_array(int arr[], int n)
     
     printf("最小和差：%d\n", min_diff3);
     printf("预期：0\n");
-}
 
-/**
- * @brief 主函数
- * @return int 程序退出状态码
- */
-int main()
-{#ifdef _WIN32
-    // 设置控制台输出为UTF-8
-    SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-printf("=== 最小化和差 ===\n");
-    printf("题目：通过交换a,b中的元素，使[序列a元素的和]与[序列b元素的和]之间的差最小\n\n");
-    
-    // 测试用例1：基本情况
-    int a1[] = {1, 2, 3, 4, 5
-
-return 0;
+    return 0;
 }
