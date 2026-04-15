@@ -22,83 +22,86 @@
 
 #define MAX_LEN 100
 
-/**
- * @brief 数字对应的中文
- */
+// 数字对应的中文
 const char *digits[] = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九"};
 
-/**
- * @brief 单位
- */
+// 单位
 const char *units[] = {"", "十", "百", "千"};
 
-/**
- * @brief 大单位
- */
+// 大单位
 const char *big_units[] = {"", "万", "亿"};
 
 /**
- * @brief 将数字转换为中文
- * @param num 数字
+ * @brief 处理四位以内的数字
+ * @param num 数字（0-9999）
  * @param result 结果字符串
- * @param unit_pos 单位位置
+ * @return int 是否有非零数字
  */
-void number_to_chinese(long long num, char *result, int unit_pos)
+int process_four_digits(int num, char *result)
 {
     if (num == 0)
     {
-        return;
+        return 0;
     }
     
-    long long part = num % 10000;
-    char temp[50] = {0};
-    int temp_len = 0;
+    int has_digit = 0;
+    int need_zero = 0;
+    char temp[20] = {0};
+    int temp_pos = 0;
     
-    // 处理每一位
-    int flag = 0; // 标记是否需要加零
-    for (int i = 0; i < 4; i++)
+    // 从高位到低位处理
+    for (int i = 3; i >= 0; i--)
     {
-        int digit = part % 10;
-        part /= 10;
+        int digit = (num / 1000) % 10;
+        num %= 1000;
+        
+        if (i == 2)
+        {
+            digit = (num / 100) % 10;
+            num %= 100;
+        }
+        else if (i == 1)
+        {
+            digit = (num / 10) % 10;
+            num %= 10;
+        }
+        else if (i == 0)
+        {
+            digit = num;
+        }
         
         if (digit != 0)
         {
-            if (flag)
+            if (need_zero)
             {
+                // 添加零
                 strcat(temp, "零");
-                flag = 0;
+                need_zero = 0;
             }
+            
+            // 添加数字
             strcat(temp, digits[digit]);
+            
+            // 添加单位
             if (i > 0)
             {
                 strcat(temp, units[i]);
             }
+            
+            has_digit = 1;
         }
-        else if (temp_len > 0)
+        else if (has_digit)
         {
-            flag = 1;
+            need_zero = 1;
         }
     }
     
-    // 反转temp
-    int len = strlen(temp);
-    for (int i = 0; i < len / 2; i++)
+    if (has_digit)
     {
-        char t = temp[i];
-        temp[i] = temp[len - i - 1];
-        temp[len - i - 1] = t;
+        strcat(result, temp);
     }
     
-    // 添加大单位
-    if (strlen(temp) > 0)
-    {
-        strcat(temp, big_units[unit_pos]);
-        strcat(temp, result);
-        strcpy(result, temp);
-    }
-    
-    // 递归处理高位
-    number_to_chinese(num / 10000, result, unit_pos + 1);
+    return has_digit;
 }
 
 /**
@@ -111,25 +114,63 @@ char* number_to_chinese_string(long long num)
     static char result[MAX_LEN] = {0};
     memset(result, 0, sizeof(result));
     
+    // 处理负数
     if (num < 0)
     {
         strcat(result, "负");
         num = -num;
     }
     
+    // 处理零
     if (num == 0)
     {
         strcat(result, "零");
         return result;
     }
     
-    number_to_chinese(num, result, 0);
+    // 处理各个段位
+    int segments[3] = {0};
+    segments[0] = num % 10000;
+    segments[1] = (num / 10000) % 10000;
+    segments[2] = num / 100000000;
     
-    // 处理特殊情况：十
-    if (strlen(result) == 2 && result[0] == '一' && result[1] == '十')
+    // 从高位到低位处理
+    int has_upper_digit = 0;
+    
+    // 处理亿位
+    if (segments[2] > 0)
     {
-        result[0] = '十';
-        result[1] = '\0';
+        process_four_digits(segments[2], result);
+        strcat(result, "亿");
+        has_upper_digit = 1;
+    }
+    
+    // 处理万位
+    if (segments[1] > 0)
+    {
+        if (has_upper_digit && segments[1] < 1000)
+        {
+            strcat(result, "零");
+        }
+        process_four_digits(segments[1], result);
+        strcat(result, "万");
+        has_upper_digit = 1;
+    }
+    
+    // 处理个位
+    if (segments[0] > 0)
+    {
+        if (has_upper_digit && segments[0] < 1000)
+        {
+            strcat(result, "零");
+        }
+        process_four_digits(segments[0], result);
+    }
+    
+    // 处理特殊情况：一十 -> 十
+    if (strlen(result) == 2 && strcmp(result, "一十") == 0)
+    {
+        strcpy(result, "十");
     }
     
     return result;
