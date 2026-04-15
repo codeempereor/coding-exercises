@@ -1,0 +1,70 @@
+/* =============================================================================
+ * 项目名称: 编程练习题
+ * 文件名称: 55.factorial_trailing_zeros.c
+ * 作    者: 三道渊
+ * 创建日期: 2026-04-15
+ * 最后修改: 2026-04-15
+ * 版    本: v1.0.0
+ * 适用平台: Windows x64
+ * 编译依赖: GCC 15.2.0, stdio.h
+ * 功能描述:
+ *   1. 阶乘末尾零的个数
+ * 版权声明: © 2026 三道渊. All rights reserved.
+ * 变更记录:
+ *   - 2026-04-15 三道渊: 初始化文件
+ * ============================================================================ */
+
+#include <stdio.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+/**
+ * @brief 计算阶乘末尾零的个数
+ * @param n 非负整数
+ * @return long long 末尾零的个数
+ */
+long long trailing_zeros(long long n)
+{
+    long long count = 0;
+    while (n > 0)
+    {
+        n /= 5;
+        count += n;
+    }
+    return count;
+}
+
+/**
+ * @brief 主函数
+ * @return int 程序退出状态码
+ */
+int main()
+{
+    #ifdef _WIN32
+    // 设置控制台输出为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+    
+    printf("=== 阶乘末尾零的个数 ===\n");
+    printf("题目：计算n!结果的末尾为0的数量\n\n");
+    
+    // 测试用例
+    long long test_cases[] = {
+        3,
+        5,
+        10,
+        25,
+        1000000000
+    };
+    int test_count = sizeof(test_cases) / sizeof(test_cases[0]);
+    
+    for (int i = 0; i < test_count; i++)
+    {
+        long long result = trailing_zeros(test_cases[i]);
+        printf("测试用例%d: %lld! → %lld个零\n", 
+               i + 1, test_cases[i], result);
+    }
+    
+    return 0;
+}
